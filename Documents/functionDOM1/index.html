@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+
+    <body>
+        <h1 id="hasil">0</h1>
+        <button onclick="add()">Tambah</button>
+        <button onclick="minus()">Kurang</button>
+
+
+        <script>
+            let angkaDOM = document.getElementById("hasil");
+            let input = 0;
+
+            render();
+            function add() {
+                input = input + 1;
+                if (input >= 21) {
+                    return alert("Tidak bisa lebih dari 20!");
+                }
+                localStorage.setItem('nomor', JSON.stringify(input));
+                angkaDOM.innerHTML = input;
+            }
+
+            function minus() {
+                input = input - 1;
+                if (input <= -1) {
+                    return alert("Tidak bisa kurang dari nol!");
+                }
+                localStorage.setItem('nomor', JSON.stringify(input()))
+                angkaDOM.innerHTML = input;
+            }
+
+            function render() {
+                var getInput = JSON.parse(localStorage.getItem('nomor'));
+                if (input != null) {
+                    return (input = getInput);
+                }
+                input = getInput;
+                angkaDOM.innerHTML = input;
+            }
+
+        </script>
+    </body>
+
+</html>
